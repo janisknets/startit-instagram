@@ -1,5 +1,5 @@
 {% for pic in pictures %}  
-    <a href="{{pic}}">
+    <a href="{{ url_for('bilde', picture=pic) }}">
       <img src='{{pic}}' height='250px' width='250px' alt='{{pic}}'/>  
     </a>
 {% endfor %}

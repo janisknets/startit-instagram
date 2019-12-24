@@ -1,14 +1,17 @@
 <html>
   <body>
-    <h1>Ielādēju bildi ar ID</h1>
     <img src='{{request.args.get('picture')}}' height='400px' width='400px' alt='{{pic}}' />
 
     {% for comment in comm %}
-      <p>{{comment}}</p>
+      <p>
+        {{comment}}
+        <a href='#'><img src='static/images/edit-button.png' width='35px'/></a>
+        <a href='#'><img src='static/images/delete-button.png' width='35px'/></a>
+      </p>
     {% endfor %}
     
     <form action = "{{ url_for('bilde', picture=request.args.get('picture')) }}" method = "post">
-      <p>Pievienot jaunu komentaru:</p>
+      <p>Pievienot jaunu komentaru: <img src='static/images/add-button.png' width='35px'/></p>
       <p><input type="text" name="newComment"></p>
       <p><input type = "submit" value = "Pievienot" /></p>
     </form>
