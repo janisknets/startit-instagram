@@ -1,20 +1,23 @@
 <html>
+  <head>
+    <title>StartIT Instagram</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style13.css') }}">
+  </head>
   <body>
-    <img src='{{request.args.get('picture')}}' height='400px' width='400px' alt='{{pic}}' />
+    <img src='{{request.args.get('picture')}}' alt='{{pic}}' class='full' />
 
     {% for comment in comm %}
       <p>
         {{comment}}
-        <a href='#'><img src='static/images/edit-button.png' width='35px'/></a>
-        <a href='#'><img src='static/images/delete-button.png' width='35px'/></a>
+        <a href='#'><img src='static/images/edit-button.png' width='35px' class='button'/></a>
+        <a href='#'><img src='static/images/delete-button.png' width='35px' class='button'/></a>
       </p>
     {% endfor %}
     
     <form action = "{{ url_for('bilde', picture=request.args.get('picture')) }}" method = "post">
-      <p>Pievienot jaunu komentaru: <img src='static/images/add-button.png' width='35px'/></p>
+      <h3>Pievienot jaunu komentaru: <img src='static/images/add-button.png' width='35px' class='button'/></h3>
       <p><input type="text" name="newComment"></p>
       <p><input type = "submit" value = "Pievienot" /></p>
     </form>
-
   </body>
 </html>

@@ -22,7 +22,7 @@ def root():
   #Ja lapa tiek vienkārši ielādēta
   else:
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures)
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount)
 
 @app.route('/bildes',methods = ['POST', 'GET'])
 def visasBildes():
