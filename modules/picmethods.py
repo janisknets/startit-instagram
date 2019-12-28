@@ -39,7 +39,7 @@ def addNewPicture(pictureName):
   try:
     with open('static/pictures.bin',mode='a') as pictureFile:
       picID = generateNextPicID
-      text = picID + ';' + pictureName + '\n'
+      text = str(picID) + ';' + pictureName + '\n'
       pictureFile.write(text)
       pictureFile.close()
   except:

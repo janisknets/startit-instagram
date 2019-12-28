@@ -51,10 +51,12 @@ def findCommentCount(picName):
 
 #Funkcija, kas pievieno konkrētam attēlam jaunu komentāru
 def addNewComment(picID,comment):
+  nextCommID = 0
+  text = ''
   try:
     with open('static/comments.bin',mode='a') as commentFile:
       nextCommID = generateNextCommID(picID)
-      text = picID + ';' + nextCommID + ';' + comment + '\n'
+      text = str(picID) + ';' + str(nextCommID) + ';' + comment + '\n'
       commentFile.write(text)
       commentFile.close()
   except:
