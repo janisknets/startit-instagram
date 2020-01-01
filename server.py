@@ -82,7 +82,7 @@ def komentars(komentaraID):
 def del_komentars():
   pictureID = "2"  # jaasanejem no lapas
   oldComID = "1"   # jasanjem no lapas, ja "", tad dzesh visus vildes komentarus
-  newComment = "Rūķis viens pats"  # jasanjem no lapas, ja "xxx", tad ar sho nomaina veco, ja "", tad dzesh esosho komentaru
+  newComment = "Rs viens pats"  # jasanjem no lapas, ja "xxx", tad ar sho nomaina veco, ja "", tad dzesh esosho komentaru
   commethods.deleteComment(pictureID,oldComID,newComment)
   return "OK"
 
