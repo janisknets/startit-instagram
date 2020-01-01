@@ -77,6 +77,16 @@ def komentars(komentaraID):
     fp.close()
   return render_template('komentars.html', komentars = atrastaisKomentars)
 
+@app.route('/mainit',methods = ['POST', 'GET'])
+#Dzeesh, maina pret citu komentaru
+def del_komentars():
+  pictureID = "2"  # jaasanejem no lapas
+  oldComID = "1"   # jasanjem no lapas, ja "", tad dzesh visus vildes komentarus
+  newComment = "Rūķis viens pats"  # jasanjem no lapas, ja "xxx", tad ar sho nomaina veco, ja "", tad dzesh esosho komentaru
+  commethods.deleteComment(pictureID,oldComID,newComment)
+  return "OK"
+
+
 @app.route('/health')
 def health():
   return "OK"

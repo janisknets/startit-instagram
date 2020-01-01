@@ -1,5 +1,5 @@
 from modules import picmethods
-
+import os
 #Funkcija, kas meklē visus vienas bildes komentārus pēc bildes nosaukuma
 def searchAllComments(picID):
   pictureComments = []
@@ -64,3 +64,31 @@ def addNewComment(picID,comment):
   finally:
     print("All ok")
   return 0
+
+#Funkcija, kas dzeesh konkreetam atteelam konkreetu komentaaru
+def deleteComment(picID,comID,newCom):
+#picID - bildes identifikators
+#comID - komentara identifikators
+#newCom - labotais komentars
+  filepath_1 = 'static/comments.bin'
+  filepath_2 = 'static/comold.bin'
+  os.rename(filepath_1,filepath_2)
+  fp1 = open(filepath_1,mode='a')
+  fp2 = open(filepath_2,mode='r')
+  with fp2:
+    line = fp2.readline()
+    while line:
+      temp = line.split(';')
+      pic = str(temp[0])
+      comm = str(temp[1])
+      if picID==pic:
+        if (comm==comID) and (newCom!=""):
+          fp1.write(str(picID)+";"+str(temp[1])+";"+newCom+"\n")
+        if (comm!=comID):
+          fp1.write(line)      
+      else:        fp1.write(line)     
+      line = fp2.readline()
+  fp1.close()
+  fp2.close()
+  os.remove(filepath_2)
+  return print("OK")  
