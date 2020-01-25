@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from flask import url_for
+from flask import url_for, json, jsonify, request
 from flask import render_template
 import os
 from modules import picmethods, commethods
@@ -86,6 +86,20 @@ def del_komentars():
   commethods.deleteComment(pictureID,oldComID,newComment)
   return "OK"
 
+@app.route('/chats/lasi')
+def ielasit_chatu():
+  chata_rindas = []
+  with open('chats.txt','r', encoding='UTF-8') as f:
+    for rinda in f:
+      chata_rindas.append(rinda)
+  return jsonify({'chats':chata_rindas})
+
+@app.route('/chats/suuti', methods = ['POST'])
+def suuti_zinju():
+  dati = request.json
+  with open('chats.txt', 'a', newline='', encoding='UTF-8') as f:
+    f.write(dati['chats'] + '\n')
+    return ielasit_chatu()
 
 @app.route('/health')
 def health():
