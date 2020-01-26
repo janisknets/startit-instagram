@@ -20,17 +20,43 @@ function raadiChatuVienkaarshi(dati){
 async function suutiZinju(){
     let zinjasElements = document.getElementById("zinja");
     let zinja = zinjasElements.value;
-    zinjasElements.value = "";
-    const atbilde = await fetch("/chats/suuti",{
-        method: "POST",
-        headers:
-        {
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify({"chats":zinja})
-    });
-    const datuObjekts = await atbilde.json();
-    raadiChataRindas(datuObjekts)
+    if (zinja[0] === '/'){
+        //Nolasām no html lapas veco niku un saglabājam mainīgajā vecsVards
+        let vecsVards = document.getElementById('vards').innerHTML;
+        //Nolasām no ziņas jauno niku un saglabājam mainīgajā jaunsVards
+        //Nogriežam no visas sūtāmās ziņas nost sākumu /nick 
+        let jaunsVards = zinja.substring(6,zinja.length);
+        //Ierakstām jauno vārdu cepumā - atrodam cepumu 'lietotajs'
+        document.cookie = "lietotajs=" + jaunsVards + "; expires=Thu, 26 Nov 2020 12:00:00 UTC; path=/";
+        //Tagad jānomaina lietotājvārds pašā lapā 
+        document.getElementById("vards").innerHTML = jaunsVards;
+        //Un jānosūta visiem čatā ziņa par to, ka lietotājs nomainījis lietotājvārdu
+        zinjasElements.value = "";
+        zinja = "Lietotājs " + vecsVards + " tagad zināms kā " + jaunsVards;
+        const atbilde = await fetch("/chats/suuti",{
+            method: "POST",
+            headers:
+            {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({"chats":zinja})
+        });
+        const datuObjekts = await atbilde.json();
+        raadiChataRindas(datuObjekts)
+    }
+    else{
+        zinjasElements.value = "";
+        const atbilde = await fetch("/chats/suuti",{
+            method: "POST",
+            headers:
+            {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({"chats":zinja})
+        });
+        const datuObjekts = await atbilde.json();
+        raadiChataRindas(datuObjekts)
+    }
 }
 
 let ievadesLauks = document.getElementById("zinja");
