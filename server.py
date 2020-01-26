@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import url_for, json, jsonify, request
-from flask import render_template
+from flask import render_template, make_response
 import os
 from modules import picmethods, commethods
 app = Flask(__name__)
@@ -21,8 +21,21 @@ def root():
     return render_template("bildes.html", pictures=pictures)
   #Ja lapa tiek vienkārši ielādēta
   else:
+    lietotajs = ""
+    #Skatāmies, vai eksistē cepums ar nosaukumu "lietotajs"
+    #Ja neeksistē, uztaisām cepumu uz 24 stundām un ieliekam lietotājvārdu "Nezināms" (anonymous)
+    if not request.cookies.get('lietotajs'):
+        res = make_response('Uzstadam lietotajvardu')
+        res.set_cookie('lietotajs', 'Nezināms', max_age=60*60*24)
+        lietotajs = 'Nezināms'
+    #Ja cepums jau eksistē, nolasām un ieliekam mainīgajā lietotajs
+    else:
+        res = make_response('Lietotajvards ir {}'.format(request.cookies.get('lietotajs')))
+        lietotajs = request.cookies.get('lietotajs')
+
+    #Ielādējam visus attēlus un izsaucam šablonu, padodot attēlu sarakstu, komentāru sarakstu un lietotājvārdu
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount)
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs)
 
 @app.route('/bildes',methods = ['POST', 'GET'])
 def visasBildes():
