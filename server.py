@@ -3,7 +3,7 @@ from flask import request
 from flask import url_for, json, jsonify, request
 from flask import render_template, make_response
 import os
-from modules import picmethods, commethods
+from modules import picmethods, commethods, namemethods
 app = Flask(__name__)
 
 @app.route('/',methods = ['POST', 'GET'])
@@ -25,13 +25,13 @@ def root():
     #Skatāmies, vai eksistē cepums ar nosaukumu "lietotajs"
     #Ja neeksistē, uztaisām cepumu uz 24 stundām un ieliekam lietotājvārdu "Nezināms" (anonymous)
     if not request.cookies.get('lietotajs'):
-        res = make_response('Uzstadam lietotajvardu')
-        res.set_cookie('lietotajs', 'Nezināms', max_age=60*60*24)
-        lietotajs = 'Nezināms'
+      res = make_response('Uzstadam lietotajvardu')
+      lietotajs = namemethods.generateRandomNickname()
+      res.set_cookie('lietotajs', lietotajs, max_age=60*60*24)
     #Ja cepums jau eksistē, nolasām un ieliekam mainīgajā lietotajs
     else:
-        res = make_response('Lietotajvards ir {}'.format(request.cookies.get('lietotajs')))
-        lietotajs = request.cookies.get('lietotajs')
+      res = make_response('Lietotajvards ir {}'.format(request.cookies.get('lietotajs')))
+      lietotajs = request.cookies.get('lietotajs')
 
     #Ielādējam visus attēlus un izsaucam šablonu, padodot attēlu sarakstu, komentāru sarakstu un lietotājvārdu
     pictures = picmethods.loadAllPictures()
