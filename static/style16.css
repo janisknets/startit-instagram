@@ -1,37 +1,48 @@
 body, html{
-    margin: 10;
-    background: #cdd0d4;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    color:rgb(41, 40, 43);
+    margin: 0;
+    background: rgb(240, 240, 240);
+    color:#262626;
+	  height: 100%;
+	  line-height: 1;
+	  align-items: stretch;
   }
-  h3{
-    text-align: center;
-    color:rgb(231, 17, 17);
+  h1{
+    font-family: "Trebuchet MS", sans-serif;
+      text-align: center;
+      color:#da6134;
+  } 
+  h5{
+    text-align: left;
+    color:#262626;
+    font-family: "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	  font-size: 14px;
+    line-height: 18px;
   }
   .container-all{
-   
-    margin: 20px auto;
-    height: auto;
+    margin: 0px auto;
+    background: rgb(240, 240, 240);
+	  
+	  top: 0;
+    padding:10px;
+    margin-left: 100px;
+    margin-right: 100px;
   }
-  .container{
-    width: calc(33% - 6px);
-    overflow:hidden;
-    height: fit-content;
-    margin:3px;
-    padding: 0;
-    display:block;
-    position:relative;
-    float:left;
-  }
-  .button{
-    display: inline-block;
-    width:35px;
-  }
-  .full{
-    display: block;
+  #img1{
+    width:500px; 
+    height:60px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+  }  
+  .container{
+    color:rgb(41, 40, 43);
+    margin: 0px;
+    float: left;
+    width: calc(28%);
+    position:relative;
+    display: block;
+    height: fit-content;
+    padding-top: 10px;
+   
   }
   img{
     width: 100%;
@@ -41,6 +52,28 @@ body, html{
     overflow:hidden;
     cursor:pointer;
   }
+  /*.container-bootstrap{
+    overflow:hidden;
+    height: fit-content;
+    margin:5px;
+    padding: 0;
+    display:block;
+    position:relative;
+    float:left;
+    position: fixed;
+  }*/
+  .button{
+    display: inline-block;
+    width:30px;
+  }
+  .full{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+ 
+  
   .title{
     position:absolute;
     display:block;

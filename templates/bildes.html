@@ -9,7 +9,8 @@
 
 <body onload='lasiChatu();' class='body'>
 <div class="container-all">
-   <h1>Mūsu StartIT Instagram un čats!</h1>
+   <a href='#'><img id=img1 src='static/images/Virsraksts.png' /></a>
+   <hr>
 {% for pic in pictures %}  
 <div class="container">
     <a href="{{ url_for('bilde', picture=pic) }}">
@@ -21,15 +22,17 @@
 
 <form action = "/bildes" method = "post">
   <br><br>
-  <h3>Pievienot jaunu attēlu <br>(iekopējiet attēla adresi):</h3>
+  <h5>Pievienot jaunu attēlu <br>(iekopējiet attēla adresi):</h5>
   <p><input type="text" name="newPicture"></p>
   <p><input type = "submit" value = "Pievienot" /></p>
 </form>
+</div>
 </div>
 
 <div class="container bootstrap">
   <div class="row info-box">
     <div class="col-md-6">
+      <br>
       <h4>Laipni lūdzam, </h4> <h4 id='vards'>{{lietotajs}} !</h4>
     </div>
     <div class="col-md-6">
