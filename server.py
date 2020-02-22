@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/',methods = ['POST', 'GET'])
 def root():
+  lietotajs = ""
   #Attēli ir linki uz pixabay attēliem; attēlu saraksts atrodas static/pictures.bin
   #Ja tiek pievienots jauns attēls
   if request.method == 'POST':
@@ -18,10 +19,9 @@ def root():
     else:
       picmethods.addNewPicture(newPicture)
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures)
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs)
   #Ja lapa tiek vienkārši ielādēta
   else:
-    lietotajs = ""
     #Skatāmies, vai eksistē cepums ar nosaukumu "lietotajs"
     #Ja neeksistē, uztaisām cepumu uz 24 stundām un ieliekam lietotājvārdu "Nezināms" (anonymous)
     if not request.cookies.get('lietotajs'):
@@ -39,6 +39,7 @@ def root():
 
 @app.route('/bildes',methods = ['POST', 'GET'])
 def visasBildes():
+  lietotajs = ""
   #Ja tiek pievienots jauns attēls
   if request.method == 'POST':
     newPicture = request.form['newPicture']
@@ -48,11 +49,11 @@ def visasBildes():
     else:
       picmethods.addNewPicture(newPicture)
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures)
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs)
   #Ja lapa tiek vienkārši ielādēta
   else:
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures)
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs)
 
 @app.route('/bilde',methods = ['POST', 'GET'])
 def bilde():
@@ -119,4 +120,4 @@ def health():
   return "OK"
 
 if __name__ == '__main__':
-  app.run()
+  app.run(debug="true")
