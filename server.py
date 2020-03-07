@@ -23,11 +23,11 @@ def root():
   #Ja lapa tiek vienkārši ielādēta
   else:
     #Skatāmies, vai eksistē cepums ar nosaukumu "lietotajs"
-    #Ja neeksistē, uztaisām cepumu uz 24 stundām un ieliekam lietotājvārdu "Nezināms" (anonymous)
+    #Ja neeksistē, uztaisām cepumu uz 24 stundām un ieliekam random lietotājvārdu
     if not request.cookies.get('lietotajs'):
       res = make_response('Uzstadam lietotajvardu')
       lietotajs = namemethods.generateRandomNickname()
-      res.set_cookie('lietotajs', lietotajs, max_age=60*60*24)
+      res.set_cookie('lietotajs', lietotajs)#cepuma iestatīšana nestrādā, btw
     #Ja cepums jau eksistē, nolasām un ieliekam mainīgajā lietotajs
     else:
       res = make_response('Lietotajvards ir {}'.format(request.cookies.get('lietotajs')))

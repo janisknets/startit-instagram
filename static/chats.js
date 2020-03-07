@@ -74,6 +74,7 @@ async function suutiZinju(){
         }
     }
     else{
+        let lietotajs = document.getElementById('vards').innerHTML;
         zinjasElements.value = "";
         const atbilde = await fetch("/chats/suuti",{
             method: "POST",
@@ -81,7 +82,7 @@ async function suutiZinju(){
             {
                 "Content-Type":"application/json"
             },
-            body: JSON.stringify({"chats":zinja})
+            body: JSON.stringify({"chats":lietotajs+': '+zinja})
         });
         const datuObjekts = await atbilde.json();
         raadiChataRindas(datuObjekts)
@@ -112,6 +113,7 @@ function raadiChataRindas(dati) {
   
   
   function izveidoJaunuRindu(zinja) { 
+    let cepumsLietotajs = getCookie('lietotajs');
     let newLI = document.createElement("li");
     newLI.className = "left clearfix"
     let newDiv = document.createElement("div"); 
