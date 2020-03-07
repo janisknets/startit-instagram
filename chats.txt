@@ -1,4 +1,5 @@
-User1;Hello from Sannie!
-User1;This is the second line.
-User2;And this is the third line. 
-User2;qqq11123
+Jautrais zirdziņš: Hello from Sannie!
+Helikopters: This is the second line.
+Helikopters: And this is the third line. 
+Helikopters: 11123
+Balerīna-automehāniķis: Still testing.

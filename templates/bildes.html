@@ -13,35 +13,28 @@
 {% for pic in pictures %}  
 <div class="container">
     <a href="{{ url_for('bilde', picture=pic) }}">
-      <img src='{{pic}}' height='250px' width='250px' alt='{{pic}}'/>  
+      <img src='{{pic}}' alt='{{pic}}'/>  
     </a>
     <span class="text">Komentāri: {{comments(pic)}}</span>
   </div>
 {% endfor %}
-
+<br>
 <form action = "/bildes" method = "post">
   <br><br>
-  <h3>Pievienot jaunu attēlu <br>(iekopējiet attēla adresi):</h3>
-  <p><input type="text" name="newPicture"></p>
-  <p><input type = "submit" value = "Pievienot" /></p>
+  <h3>Pievienot jaunu attēlu (iekopējiet attēla adresi):</h3>
+  <p><input type="text" name="newPicture"></p> 
+  <b><p><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></p></b>
 </form>
 </div>
-
-<div class="container bootstrap">
-  <div class="row info-box">
-    <div class="col-md-6">
-      <h4>Laipni lūdzam, </h4> <h4 id='vards'>{{lietotajs}} !</h4>
-    </div>
-    <div class="col-md-6">
-      <p id="versija"></p>
-    </div>
-  </div>
+<h4>Jūs esat ielogojies kā: </h4> <h4 id='vards'>{{lietotajs}}</h4> <h4>!</h4>
+<br>
+<div class="container-fluid">
   <div class="row">
     <!-- selected chat -->
-    <div class="col-md-12">
+    <div class="col-md-12"  width="100%">
       <div class="chat-message">
-        <ul class="chat" id="chats">
-            <li class="left clearfix">
+        <ul class="chat" id="chats" style="list-style-type: none;">
+            <li class="left clearfix" style="list-style-type: none;">
             </li>                   
         </ul>
       </div>           
@@ -50,7 +43,7 @@
   <div class="row">
     <div class="chat-box">
       <div class="input-group">
-        <input id="zinja" class="form-control border no-shadow no-rounded" placeholder="Rakstiet savu ziņu un spiediet Enter vai Sūtīt" type="text">
+        <input id="zinja" class="form-control border no-shadow no-rounded" placeholder="Raksti savu ziņu un spiediet Enter vai Sūtīt" type="text">
         <span class="input-group-btn">
           <button onClick="suutiZinju();" class="btn btn-success no-rounded" type="button">Sūtīt</button>
         </span>
