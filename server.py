@@ -93,12 +93,20 @@ def komentars(komentaraID):
 
 @app.route('/mainit',methods = ['POST', 'GET'])
 #Dzeesh, maina pret citu komentaru
-def del_komentars():
-  pictureID = "2"  # jaasanejem no lapas
-  oldComID = "1"   # jasanjem no lapas, ja "", tad dzesh visus vildes komentarus
+def mainit():  
   newComment = "Rs viens pats"  # jasanjem no lapas, ja "xxx", tad ar sho nomaina veco, ja "", tad dzesh esosho komentaru
-  commethods.deleteComment(pictureID,oldComID,newComment)
-  return "OK"
+  picture_txt = request.args.get('co2') #Attēla nosaukums - saite
+  oldCom_txt = request.args.get('co1')  #Aktīvais komentārs - labošanai, dzēšanai
+  pictureID = picmethods.findPictureIdByName(picture_txt)
+  oldComID = commethods.findCommentIdByName(pictureID,oldCom_txt)
+  
+  commethods.deleteComment(pictureID,oldComID)
+  comments = commethods.searchAllComments(pictureID)
+  print("------->>> "+picture_txt)
+  return render_template(
+    "bilde.html", picture = picture_txt,comm = comments
+  )
+
 
 @app.route('/chats/lasi')
 def ielasit_chatu():

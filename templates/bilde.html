@@ -11,7 +11,8 @@
         {{comment}}
         <a href='#'><img src='static/images/edit-button.png' width='35px' class='button'/></a>
         <a href='#'><img src='static/images/delete-button.png' width='35px' class='button'/></a>
-      <br>
+        <a href="{{ url_for('mainit', co1=comment,co2=picture) }}" ><img src='static/images/delete-button.png' width='35px' class='button'/></a>
+    
     {% endfor %}
     
     <form action = "{{ url_for('bilde', picture=request.args.get('picture')) }}" method = "post">
