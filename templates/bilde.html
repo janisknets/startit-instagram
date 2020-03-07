@@ -4,20 +4,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style13.css') }}">
   </head>
   <body>
-    <img src='{{request.args.get('picture')}}' alt='{{pic}}' class='full' />
-
+    <img src='{{request.args.get("picture")}}' alt='{{pic}}' class='full' />
+    <br>
     {% for comment in comm %}
-      <p>
+      
         {{comment}}
         <a href='#'><img src='static/images/edit-button.png' width='35px' class='button'/></a>
+        <a href='#'><img src='static/images/delete-button.png' width='35px' class='button'/></a>
         <a href="{{ url_for('mainit', co1=comment,co2=picture) }}" ><img src='static/images/delete-button.png' width='35px' class='button'/></a>
-      </p>
+    
     {% endfor %}
     
     <form action = "{{ url_for('bilde', picture=request.args.get('picture')) }}" method = "post">
-      <h3>Pievienot jaunu komentaru: <img src='static/images/add-button.png' width='35px' class='button'/></h3>
+      <h3>Pievienot jaunu komentāru: <img src='static/images/add-button.png' width='35px' class='button'/></h3>
       <p><input type="text" name="newComment"></p>
-      <p><input type = "submit" value = "Pievienot" /></p>
+      <p><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></p>
     </form>
   </body>
 </html>

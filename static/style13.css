@@ -42,13 +42,16 @@ body, html{
   .button{
     display: inline-block;
     width:35px;
+    height: 35px;
     font-weight: bold;
+    position: initial;
   }
   .full{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    position: initial;
   }
   img{
     transition-duration: .3s;
