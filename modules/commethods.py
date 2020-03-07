@@ -66,10 +66,9 @@ def addNewComment(picID,comment):
   return 0
 
 #Funkcija, kas dzeesh konkreetam atteelam konkreetu komentaaru
-def deleteComment(picID,comID,newCom):
-#picID - bildes identifikators
-#comID - komentara identifikators
-#newCom - labotais komentars
+def deleteComment(picID,comID):
+    #picID - bildes identifikators, str
+#comID - komentara identifikators, str
   filepath_1 = 'static/comments.bin'
   filepath_2 = 'static/comold.bin'
   os.rename(filepath_1,filepath_2)
@@ -79,16 +78,30 @@ def deleteComment(picID,comID,newCom):
     line = fp2.readline()
     while line:
       temp = line.split(';')
-      pic = str(temp[0])
-      comm = str(temp[1])
-      if picID==pic:
-        if (comm==comID) and (newCom!=""):
-          fp1.write(str(picID)+";"+str(temp[1])+";"+newCom+"\n")
-        if (comm!=comID):
-          fp1.write(line)      
-      else:        fp1.write(line)     
+      if picID==temp[0]:
+        if (comID!=temp[1]):
+          fp1.write(line)
+      else:  
+        fp1.write(line)    
       line = fp2.readline()
   fp1.close()
   fp2.close()
   os.remove(filepath_2)
   return print("OK")
+#Funkcija, kas pēc attēla ID un komentara satura atgriež komentara ID no comments.bin
+def findCommentIdByName(picID,comment_txt):
+  comID = 0
+  filepath = 'static/comments.bin'
+  with open(filepath) as fp:
+    line = fp.readline()
+    cnt = 1
+    while line:
+      if line!='':
+        fullComInfo = line.strip().split(';')
+        if fullComInfo[0] == picID:
+          if(fullComInfo[2]==comment_txt):
+            comID = fullComInfo[1]
+      line = fp.readline()
+      cnt += 1
+  fp.close()
+  return comID
