@@ -128,4 +128,9 @@ def health():
   return "OK"
 
 if __name__ == '__main__':
+<<<<<<< HEAD
   app.run(debug="true")
+=======
+  app.run(debug=True)
+  
+>>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e

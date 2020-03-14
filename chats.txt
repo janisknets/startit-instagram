@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 Jautrais zirdziņš: Hello from Sannie!
 Helikopters: This is the second line.
 Helikopters: And this is the third line. 
 Helikopters: 11123
 Balerīna-automehāniķis: Still testing.
+<i>Pūkainais zilonītis!</i>: Sveiks, Zilon'iti!
+=======
+User1;Hello from Sannie!
+User1;This is the second line.
+User2;And this is the third line. 
+User2;qqq11123
+Hello, Gita
+>>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e

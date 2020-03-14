@@ -4,31 +4,81 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style13.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style16.css') }}">
 </head>
 
 <body onload='lasiChatu();' class='body'>
 <div class="container-all">
-   <h1>Mūsu StartIT Instagram un čats!</h1>
-{% for pic in pictures %}  
-<div class="container">
-    <a href="{{ url_for('bilde', picture=pic) }}">
-      <img src='{{pic}}' alt='{{pic}}'/>  
-    </a>
-    <span class="text">Komentāri: {{comments(pic)}}</span>
+  <div id="header">
+<<<<<<< HEAD
+    <div id="fmiddle">
+      <img id=img1 src='static/images/Virsraksts.png' />
+=======
+   <a href='#'><img id=img1 src='static/images/Virsraksts.png' /></a>
+   <hr width=3px>
   </div>
+{% for pic in pictures %}
+  <div id="body">  
+    <div class="container">
+      <a href="{{ url_for('bilde', picture=pic) }}">
+        <img src='{{pic}}' height='350px' width='250px' alt='{{pic}}'/>  
+      </a>
+      <span class="text">Komentāri: {{comments(pic)}}</span>
+>>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e
+    </div>
+  </div>
+{% for pic in pictures %}
+  <div id="body">
+    <div class="container">
+      <a href="{{ url_for('bilde', picture=pic) }}">
+      <img src='{{pic}}' alt='{{pic}}'/>  
+      </a>
+      <span class="text">Komentāri: {{comments(pic)}}</span>
+    </div>
+  </div>  
 {% endfor %}
-<br>
-<form action = "/bildes" method = "post">
-  <br><br>
-  <h3>Pievienot jaunu attēlu (iekopējiet attēla adresi):</h3>
-  <p><input type="text" name="newPicture"></p> 
-  <b><p><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></p></b>
-</form>
+<<<<<<< HEAD
+  <br>
+  <div class="container bootstrap">
+    <form action = "/bildes" method = "post">
+      <br><br>
+      <h3><b>Pievienot jaunu attēlu</h3></b>
+      <h5>(iekopējiet attēla adresi):</h5>
+      <p><input type="text" name="newPicture"></p> 
+     <b><p><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></p></b>
+    </form>
+  </div>>
 </div>
-<h4>Jūs esat ielogojies kā: </h4> <h4 id='vards'>{{lietotajs}}</h4> <h4>!</h4>
+<hr>
+<div id="body">
+<h3><b>Jūs esat ielogojies kā:</h3>
+<h3 id='vards'>{{lietotajs}}!</h3></b>
 <br>
+</div>
 <div class="container-fluid">
+=======
+  <div class="container bootstrap">
+    <form action = "/bildes" method = "post">
+      <br><br>
+      <h3>Pievienot jaunu attēlu</h3> 
+      <h5>(iekopē attēla adresi):</h5>
+      <p><input type="text" name="newPicture"></p>
+      <p><input type = "submit" value = "Pievienot" /></p>
+    </form>
+  </div>
+</div>
+
+<div class="container bootstrap">
+  <div class="row info-box">
+    <div class="col-md-6">
+      <br>
+      <h4>Laipni lūdzam, </h4> <h4 id='vards'>{{lietotajs}} !</h4>
+    </div>
+    <div class="col-md-6">
+      <p id="versija"></p>
+    </div>
+  </div>
+>>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e
   <div class="row">
     <!-- selected chat -->
     <div class="col-md-12"  width="100%">
@@ -52,5 +102,22 @@
   </div>
 </div>
 <script src="{{url_for('static',filename='chats.js')}}" type="text/javascript"></script>
+<br>
+<div id="footer">
+  <div id="fmiddle">
+    <h5>Izstrādātājs © 2020 Jānis & "Trakais Betmens un meitenes"</h5>
+    <br><h5>e-pasts: TrakaisBetmens@gmail.com </h5>
+    <div id="social">
+      <div class="row">
+        <div class="column">
+        <a href='https://www.facebook.com/' target='_blank'><img id=img2 src='static/images/fac.png'alt/></a></div>
+        <div class="column">
+        <a href='https://twitter.com/login' target='_blank'><img id=img2 src='static/images/twt.png' alt/></a></div>
+        <div class="column">
+        <a href='https://www.youtube.com/' target='_blank'><img id=img2 src='static/images/yt.png' alt/></a></div>
+    </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
