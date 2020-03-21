@@ -12,3 +12,7 @@ User2;And this is the third line.
 User2;qqq11123
 Hello, Gita
 >>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e
+Buddas statuja!: pārbaude
+Revolūcija Pištoļetovna!: Hello
+Jautrais zirdziņš!: Hello!
+Inčīgais rūķītis!: Jauks laiks

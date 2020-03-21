@@ -10,21 +10,8 @@
 <body onload='lasiChatu();' class='body'>
 <div class="container-all">
   <div id="header">
-<<<<<<< HEAD
     <div id="fmiddle">
-      <img id=img1 src='static/images/Virsraksts.png' />
-=======
-   <a href='#'><img id=img1 src='static/images/Virsraksts.png' /></a>
-   <hr width=3px>
-  </div>
-{% for pic in pictures %}
-  <div id="body">  
-    <div class="container">
-      <a href="{{ url_for('bilde', picture=pic) }}">
-        <img src='{{pic}}' height='350px' width='250px' alt='{{pic}}'/>  
-      </a>
-      <span class="text">Komentāri: {{comments(pic)}}</span>
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e
+      <img id=img1 src='static/images/Virsraksts.png' >
     </div>
   </div>
 {% for pic in pictures %}
@@ -37,7 +24,6 @@
     </div>
   </div>  
 {% endfor %}
-<<<<<<< HEAD
   <br>
   <div class="container bootstrap">
     <form action = "/bildes" method = "post">
@@ -51,34 +37,13 @@
 </div>
 <hr>
 <div id="body">
-<h3><b>Jūs esat ielogojies kā:</h3>
-<h3 id='vards'>{{lietotajs}}!</h3></b>
-<br>
-</div>
-<div class="container-fluid">
-=======
-  <div class="container bootstrap">
-    <form action = "/bildes" method = "post">
-      <br><br>
-      <h3>Pievienot jaunu attēlu</h3> 
-      <h5>(iekopē attēla adresi):</h5>
-      <p><input type="text" name="newPicture"></p>
-      <p><input type = "submit" value = "Pievienot" /></p>
-    </form>
+  <div id="chmiddle">
+    <h3><b>Jūs esat ielogojies kā:</h3>
+    <h2 id='vards'>{{lietotajs}}!</h2></b>
+    <br>
   </div>
-</div>
 
-<div class="container bootstrap">
-  <div class="row info-box">
-    <div class="col-md-6">
-      <br>
-      <h4>Laipni lūdzam, </h4> <h4 id='vards'>{{lietotajs}} !</h4>
-    </div>
-    <div class="col-md-6">
-      <p id="versija"></p>
-    </div>
-  </div>
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e
+<div class="container-fluid">
   <div class="row">
     <!-- selected chat -->
     <div class="col-md-12"  width="100%">
@@ -102,6 +67,7 @@
   </div>
 </div>
 <script src="{{url_for('static',filename='chats.js')}}" type="text/javascript"></script>
+</div>
 <br>
 <div id="footer">
   <div id="fmiddle">

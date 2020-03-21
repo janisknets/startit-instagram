@@ -2,41 +2,25 @@ body, html{
     margin: 0;
     background: rgb(240, 240, 240);
     color:#262626;
-<<<<<<< HEAD:static/style13.css
     height: 100%;
-=======
-	  height: 100%;
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
 	  line-height: 1;
 	  align-items: stretch;
   }
   #header {
-<<<<<<< HEAD:static/style13.css
     height: 130px;
     margin-top: 0px;
     margin-bottom: 10px;
     background: #414141;
-=======
-    height: 100px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    background: rgb(255, 255, 255);
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     margin-left: 30px;
     margin-right: 30px;
   } 
   #img1{
     width:600px; 
-<<<<<<< HEAD:static/style13.css
     height:100px;
-=======
-    height:80px;
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
   }  
-<<<<<<< HEAD:static/style13.css
   p{
     font-family: "Trebuchet MS", sans-serif;
   }
@@ -56,8 +40,14 @@ body, html{
     color: #153758;
     margin-left: 50px;
   }
+  h2{
+    text-align: left;
+    color: #153758;
+    font-family: "Trebuchet MS", sans-serif;
+  }
   h3{
     text-align: left;
+    padding-top: 10px;
     color: #153758;
     font-family: "Trebuchet MS", sans-serif;
   }
@@ -65,29 +55,6 @@ body, html{
     margin: auto;
     overflow: auto;
     /*height: auto;*/
-=======
-  
-  h1{
-    font-family: "Trebuchet MS", sans-serif;
-      text-align: center;
-      color:#da6134;
-  } 
-  h3{
-    text-align: left;
-    color:#050825;
-    font-family: "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height: 18px;
-  }
-  h5{
-    text-align: left;
-    color:#444343;
-    font-family: "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height: 18px;
-  }
-  .container-all{
-    margin: 0px auto;
-    overflow: auto;
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     background: rgb(240, 240, 240);
     margin-left: 80px;
     margin-right: 80px;
@@ -97,34 +64,12 @@ body, html{
     margin: 0 auto;
   }
   .container{
-<<<<<<< HEAD:static/style13.css
     float: left;
     width: calc(33%); 
-=======
-    margin: 0px;
-    float: left;
-    width: calc(33%);
-    position:relative;
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     height: fit-content;
     padding-top: 10px;
     padding-bottom: 10px;
   }
-<<<<<<< HEAD:static/style13.css
-=======
-  img{
-    width: 100%;
-    transition-duration: .3s;
-    max-width: 100%;
-    display:block;
-    overflow:hidden;
-    cursor:pointer;
-  }
-  form.{
-    width: 50%;
-    display:block;
-  }
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
   .container-bootstrap{
     overflow:hidden;
     height: fit-content;
@@ -134,7 +79,6 @@ body, html{
    /*position:relative;*/
     float:left;
     position: fixed;
-<<<<<<< HEAD:static/style13.css
   }
   img{
     width: 100%;
@@ -161,22 +105,6 @@ body, html{
     position: initial;
   }
   /*.title{
-=======
-  }
-  .button{
-    display: inline-block;
-    width:100px;
-  }
-  .full{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
- 
-  
-  .title{
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     position:absolute;
     display:block;
     cursor:pointer;
@@ -226,32 +154,27 @@ body, html{
       }
   }
 
-<<<<<<< HEAD:static/style13.css
  /* body {
-=======
-  /*body {
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
     padding-top: 0;
     font-size: 14px;
     font-family: 'Open Sans',sans-serif;
     margin-top:20px;
-<<<<<<< HEAD:static/style13.css
   }
   
   .bg-white {
     background-color: #fff;
-=======
->>>>>>> 3d13d2277d6914cff21e7087b8640cb040f8c84e:static/style16.css
   }*/
-  
-
+  .container-fluid{
+    height: fit-content;
+    margin:5px;
+    padding: 10px;
+    display:block;
+  }
   .chat-message {
     position:static;
-    top: 50px; 
-    left: 10;
-    right: 0;
+    top: 30px; 
     bottom:50px;
-    padding: 15px;
+    padding: 10px;
     overflow-y:scroll; 
     float: none; 
   }
@@ -271,13 +194,13 @@ body, html{
   }
   
   .chat li.left .chat-body {
-    background-color: rgb(250, 224, 200);
+    background-color: #fcf9f4;
   }
   
   .chat li .chat-body {
     list-style-type: none;
     position: static;
-    font-size: 14px;
+    font-size: 20px;
     padding: 2px;
     border: 0px;
     box-shadow: 0 2px 2px rgba(0,0,0,.1);
@@ -316,36 +239,41 @@ body, html{
   
   .chat-box {
     position:static; 
-    bottom: 0; 
-    /* height:15px; */
-    left: 20px;
-    right: 20px;
+    height:25px; 
+    left: 0px;
+    right: 0px;
     padding: 0px;
-    border-top: 1px solid #E5FFCC;
+    border-top: 1px solid  #f9f4ea;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     -ms-transition: all .5s ease;
     -o-transition: all .5s ease;
   }
-  
+ 
   .btn-success {
     background-color: #f48024;
     border-color: rgb(47, 51, 47);
   }
   
   .btn-success:hover {
-    background-color: #f48024;
+    background-color: #ceb588;
   }
   
   input[type=text] {
     border: 2px solid #f48024 !important;
     border-radius: 20px;
     color: rgb(47, 51, 47);
-    width: 400px;
-    height: 50px;
+    font-size: 20px;
+    width: 450px;
+    height: 60px;
+    margin-left: 0px;
   }
-  
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+
+  }
   a:hover, a:active, a:focus {
     text-decoration: none;
     outline: 0;
@@ -362,6 +290,10 @@ body, html{
   #fmiddle {
     background: #FF7F2A;
     height: 115px;
+  }
+  #chmiddle{
+    background:#ecd9b6;
+    height: 100px;
   }
   #social{
     display: inline-block;
