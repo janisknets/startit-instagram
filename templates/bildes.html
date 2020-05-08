@@ -10,6 +10,7 @@
 <body onload='lasiChatu();' class='body'>
 <div class="container-all">
    <h1>Mūsu StartIT Instagram un čats!</h1>
+<hr>
 {% for pic in pictures %}  
 <div class="container">
     <a href="{{ url_for('bilde', picture=pic) }}">
@@ -22,10 +23,13 @@
 <form action = "/bildes" method = "post">
   <br><br>
   <h3>Pievienot jaunu attēlu (iekopējiet attēla adresi):</h3>
-  <p><input type="text" name="newPicture"></p> 
-  <b><p><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></p></b>
+  <input type="text" name="newPicture">
+  <b><input type = "submit" value = "Pievienot" class="btn btn-success no-rounded"/></b>
 </form>
 </div>
+
+<h6><b>Šodien vārda dienas svin:</b> {{vardi}} </h6>
+<hr>
 <h4>Jūs esat ielogojies kā: </h4> <h4 id='vards'>{{lietotajs}}</h4> <h4>!</h4>
 <br>
 <div class="container-fluid">
@@ -51,6 +55,7 @@
     </div> 
   </div>
 </div>
+
 <script src="{{url_for('static',filename='chats.js')}}" type="text/javascript"></script>
 </body>
 </html>

@@ -114,8 +114,8 @@ function raadiChataRindas(dati) {
   
   function izveidoJaunuRindu(zinja) { 
     //let cepumsLietotajs = getCookie('lietotajs');
-    let msgSender = zinja.split(":")[0] + ":"; 
-    let msgContent = zinja.split(":")[1]; 
+    let msgSender = zinja; 
+    //let msgContent = zinja.split(":")[1]; 
     let newLI = document.createElement("li");
     let newH4 = document.createElement("a");
     newLI.className = "left clearfix";
@@ -123,11 +123,11 @@ function raadiChataRindas(dati) {
     let newDiv = document.createElement("div"); 
     newDiv.className = "chat-body clearfix";
     //let newContent = document.createTextNode(zinja); 
-    let newContent = document.createTextNode(msgContent);
+    //let newContent = document.createTextNode(msgContent);
     newH4.innerHTML = msgSender;
     newLI.appendChild(newH4)
     newLI.appendChild(newDiv); 
-    newDiv.appendChild(newContent); 
+    //newDiv.appendChild(newContent); 
     return newLI;
   }
 
