@@ -1,9 +1,12 @@
 from flask import Flask
 from flask import request
-from flask import url_for, json, jsonify, request
+from flask import url_for, json, jsonify, g
 from flask import render_template, make_response
 import os
 from modules import picmethods, commethods, namemethods
+import datetime
+import psycopg2
+from data import varda_diena, menesa_vardi, diena
 app = Flask(__name__)
 
 @app.route('/',methods = ['POST', 'GET'])
@@ -35,7 +38,15 @@ def root():
 
     #Ielādējam visus attēlus un izsaucam šablonu, padodot attēlu sarakstu, komentāru sarakstu un lietotājvārdu
     pictures = picmethods.loadAllPictures()
-    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs)
+
+    #Nolasām, kas šodien svin vārda dienas un padodam kā parametru
+    sodiena = datetime.date.today()
+    atbilde = diena(sodiena.month, sodiena.day)
+    rezultats = ""
+    for v in atbilde:
+        rezultats += v[0] + ", "
+    rezultats = rezultats[0:-2] + "!"
+    return render_template("bildes.html", pictures=pictures,comments=commethods.findCommentCount,lietotajs=lietotajs,vardi=rezultats)
 
 @app.route('/bildes',methods = ['POST', 'GET'])
 def visasBildes():
